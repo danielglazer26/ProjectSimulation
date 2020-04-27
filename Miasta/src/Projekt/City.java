@@ -1,0 +1,28 @@
+package Projekt;
+
+class City {
+
+    protected int fortune = 5;
+    protected int city_level = 0;
+    protected int[][] city_area;
+
+    protected City(int map_size){
+         city_area = new int[map_size][map_size];
+        CityLocalization.setLocalization();
+    }
+
+    protected void addFortune(int fortune){
+        this.fortune += fortune;
+    }
+
+    protected void addLevel(){ this.city_level += 1; }
+    protected void decreaseLevel(){ this.city_level -= 1; }
+
+    protected int getFortune(){return  fortune;}
+
+
+    public int[][] getCity_area(){ return city_area;}
+
+}
+
+
