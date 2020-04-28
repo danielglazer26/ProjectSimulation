@@ -1,9 +1,9 @@
 /*
-Wersja Paweł
+Daniel
+Wersja Daniela
+
+Dodam coś do sprawdzenia
  */
-
-
-
 package Projekt;
 
 import java.util.Scanner;
