@@ -1,7 +1,7 @@
 /*
 Daniel
 Wersja Daniela
-
+//17:29
 Dodam coś do sprawdzenia
  */
 package Projekt;
