@@ -1,3 +1,7 @@
+/*
+Wersja Daniela
+ */
+
 package Projekt;
 
 import java.util.Scanner;
