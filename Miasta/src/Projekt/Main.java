@@ -1,3 +1,9 @@
+/*
+Wersja Paweł
+ */
+
+
+
 package Projekt;
 
 import java.util.Scanner;
