@@ -14,12 +14,11 @@ class City {
     protected void addFortune(int fortune){
         this.fortune += fortune;
     }
-
-    protected void addLevel(){ this.city_level += 1; }
-    protected void decreaseLevel(){ this.city_level -= 1; }
-
     protected int getFortune(){return  fortune;}
 
+    public int getCity_level(){ return city_level; }
+    protected void addLevel(){ this.city_level += 1; }
+    protected void decreaseLevel(){ this.city_level -= 1; }
 
     public int[][] getCity_area(){ return city_area;}
 

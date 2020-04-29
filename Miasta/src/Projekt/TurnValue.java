@@ -4,12 +4,8 @@ package Projekt;
 
     private int  city_upgrade;
 
-    public void checkCityUpgrade (CitiesEvolution city){
+    public void checkCityUpgrade (int city_level){
 
-        System.out.println(city.getCity_table().get(0).getFortune());
-       if(city_upgrade>0) {
-           city.getCity_table().get(0).addLevel();
-       }
     }
 
 }

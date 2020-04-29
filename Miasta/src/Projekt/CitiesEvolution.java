@@ -20,4 +20,5 @@ class CitiesEvolution  {
         return map.viewMap().get(x).get(y).getValue();
     }
     protected ArrayList<City> getCity_table() {return  city_table;}
+
 }
