@@ -16,7 +16,7 @@ class CitiesEvolution  {
     }
     MapGenerator map;
 
-    protected   int checkField(int x, int y){
+    public  int checkField(int x, int y){
         return map.viewMap().get(x).get(y).getValue();
     }
     protected ArrayList<City> getCity_table() {return  city_table;}

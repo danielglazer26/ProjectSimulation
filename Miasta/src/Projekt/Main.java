@@ -1,5 +1,5 @@
 /*
-Version 1.0.1
+Version 1.0.2
  */
 package Projekt;
 
@@ -24,7 +24,7 @@ abstract class Main {
 
 
        TurnSystem turnSystem = new TurnSystem(map_size, number_cities);
-       turnSystem.simulationTurn(turn_number, number_cities);
+       turnSystem.simulationTurn(map_size, turn_number, number_cities);
 
     }
 }

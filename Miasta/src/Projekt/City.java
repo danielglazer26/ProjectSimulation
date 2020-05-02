@@ -8,7 +8,7 @@ class City {
 
     protected City(int map_size){
          city_area = new int[map_size][map_size];
-        CityLocalization.setLocalization();
+        city_area[CityLocalization.setLocalization(map_size)][CityLocalization.setLocalization(map_size)] = 2;
     }
 
     protected void addFortune(int fortune){
