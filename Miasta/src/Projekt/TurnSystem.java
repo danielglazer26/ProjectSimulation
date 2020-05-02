@@ -18,9 +18,12 @@ class TurnSystem {
     protected void simulationTurn(int map_size, int turn_number, int number_cities){
         for(int i = turn_number; i > 0; i--) {                              //Tura wszystkich miast
             for(int j = 0; j < number_cities; j++) {                       //Tura pojedynczego miasta
-               citiesEvolution.getCity_table().get(j).addFortune(turnValue.countFieldValue(map_size, citiesEvolution.getCity_table().get(j).city_area, citiesEvolution));
+               citiesEvolution.getCity_table().get(j).addFortune(turnValue.countFieldValue(map_size, citiesEvolution.getCity_table().get(j).getCity_area(), citiesEvolution));
                // dodanie wartości wynikającej z posiadanych pól
 
+                if(turnValue.checkCityUpgrade(citiesEvolution.getCity_table().get(j).getFortune(), citiesEvolution.getCity_table().get(j).getCity_level())){ //sprawdzenie czy może zlevelować
+                    citiesEvolution.cityEvolution(map_size, j);
+                }
             }
         }
     }
