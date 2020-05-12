@@ -1,5 +1,5 @@
 /*
-Version 1.0.4
+Version 1.0.5
  */
 package Projekt;
 
@@ -29,8 +29,8 @@ abstract class Main {
 
         RandomNumber randomNumber = new RandomNumber(seed);
        TurnSystem turnSystem = new TurnSystem(map_size, number_cities, randomNumber);
-     //  turnSystem.simulationTurn(map_size, turn_number, number_cities);
-       turnSystem.map_viewer(map_size);
+       turnSystem.simulationTurn(map_size, turn_number, number_cities);
+       //turnSystem.map_viewer(map_size);
 
     }
 }
