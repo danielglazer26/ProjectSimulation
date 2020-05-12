@@ -6,9 +6,9 @@ class City {
     private int city_level = 1;
     private int[][] city_area;
 
-    protected City(int map_size){
+    protected City(int map_size,RandomNumber randomNumber){
          city_area = new int[map_size][map_size];
-        city_area[CityLocalization.setLocalization(map_size)][CityLocalization.setLocalization(map_size)] = 2;
+        city_area[CityLocalization.setLocalization(map_size,randomNumber)][CityLocalization.setLocalization(map_size,randomNumber)] = 2;
     }
 
     protected void addFortune(int fortune){

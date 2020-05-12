@@ -1,18 +1,30 @@
 package Projekt;
 
+import java.util.ArrayList;
+import java.util.List;
 class TurnSystem {
 
 
     CitiesEvolution citiesEvolution;
     CitiesRelation citiesRelation;
-     TurnValue turnValue;
+    TurnValue turnValue;
+    MapGenerator mapGenerator;
 
-    protected TurnSystem(int map_size, int number_cities){
-         citiesEvolution = new CitiesEvolution(map_size, number_cities);
-         citiesRelation = new CitiesRelation();
+
+    protected TurnSystem(int map_size, int number_cities,RandomNumber randomNumber) {
+        citiesEvolution = new CitiesEvolution(map_size, number_cities,randomNumber);
+        citiesRelation = new CitiesRelation();
         turnValue = new TurnValue();
+        mapGenerator = new MapGenerator(map_size,randomNumber);  //utworzeie mapy
     }
 
+    protected void map_viewer(int map_size) //wersja deweloperska do sprawdzania mapy, potem się to wywali
+    {
+        for(int i=0;i<map_size;i++){
+            for(int j=0;j<map_size;j++){
+      System.out.print(mapGenerator.viewMap().get(i).get(j).getValue()+" ");
+    } System.out.println();
+        }}
 
 
     protected void simulationTurn(int map_size, int turn_number, int number_cities){

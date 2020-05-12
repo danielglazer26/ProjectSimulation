@@ -1,5 +1,5 @@
 /*
-Version 1.0.3
+Version 1.0.4
  */
 package Projekt;
 
@@ -9,7 +9,7 @@ abstract class Main {
 
     public static void main(String[] args) {
 
-        int number_cities, map_size, turn_number;
+        int number_cities, map_size, turn_number, seed;
 
         Scanner scan = new Scanner(System.in);
 
@@ -22,9 +22,15 @@ abstract class Main {
         System.out.println("Podaj liczbe tur:");
         turn_number = scan.nextInt();
 
+        System.out.println("Podaj seed:");
+        seed = scan.nextInt();
 
-       TurnSystem turnSystem = new TurnSystem(map_size, number_cities);
-       turnSystem.simulationTurn(map_size, turn_number, number_cities);
+
+
+        RandomNumber randomNumber = new RandomNumber(seed);
+       TurnSystem turnSystem = new TurnSystem(map_size, number_cities, randomNumber);
+     //  turnSystem.simulationTurn(map_size, turn_number, number_cities);
+       turnSystem.map_viewer(map_size);
 
     }
 }

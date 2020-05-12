@@ -7,13 +7,13 @@ class CitiesEvolution  {
     ArrayList<City> city_table = new ArrayList<>();
     MapGenerator map;
 
-    protected CitiesEvolution(int map_size, int number_cities){
+    protected CitiesEvolution(int map_size, int number_cities,RandomNumber randomNumber){
 
         for(int i = 0; i < number_cities; i++)
         {
-            city_table.add(new City(map_size));
+            city_table.add(new City(map_size,randomNumber));
         }
-        map = new MapGenerator(map_size);
+       // map = new MapGenerator(map_size,randomNumber);
     }
 
     protected void cityEvolution(int map_size, int a){
