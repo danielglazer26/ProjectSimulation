@@ -12,12 +12,6 @@ import java.util.List;
 
         occupied_field = new boolean[map_size][map_size];
 
-        for(int i=0;i<map_size;i++)
-        for(int j=0;j<map_size;j++)
-        {
-            occupied_field[i][j]=false;
-        }
-
         for (int i = 0; i < map_size; i++) {
             map.add(new ArrayList<Field>());
         }
@@ -79,6 +73,7 @@ import java.util.List;
     } System.out.println();
         }System.out.println();}
      }
+
 
 
 

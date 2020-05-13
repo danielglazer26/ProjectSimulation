@@ -12,9 +12,10 @@ class CitiesEvolution  {
     private boolean add = false;
 
 
-    protected CitiesEvolution(int map_size, int number_cities,RandomNumber randomNumber){
+    protected CitiesEvolution(int map_size, int number_cities,RandomNumber randomNumber,MapContainer mapContainer){
 
         map = new MapGenerator(map_size,randomNumber);
+        mapContainer.setTestMap(map,map_size);
         for(int i = 0; i < number_cities; i++)
         {
             //miasta nie mogą pojawić się w tym samym miejscu
@@ -24,16 +25,18 @@ class CitiesEvolution  {
             }while(map.getOccupied_field(city_table.get(i).getX(),city_table.get(i).getY()));
             map.setOccupied_field(city_table.get(i).getX(),city_table.get(i).getY(),true); //ustawienie że pole jest zajęte
             city_table.get(i).setStartArea(); //ustawienie CityArea
+            mapContainer.setMapLocation(city_table.get(i).getX(),city_table.get(i).getY(),i+1);
         }
 
         map.viewOccupied(map_size); //dev
         map.map_viewer(map_size);
+        //mapContainer.getMap(map_size);
 
 
 
     }
 
-    protected void cityEvolution(int map_size, int a){
+    protected void cityEvolution(int map_size, int a,MapContainer mapContainer){
         city_table.get(a).addLevel();    // zwieksza lvl miasta
 
         for (int i = 0; i < map_size; i++) {                           //algorytm wyboru nowego pola KONCEPCJA
@@ -81,7 +84,11 @@ class CitiesEvolution  {
         }
         if(add){
             city_table.get(a).setCity_area(best_x, best_y, 1);
-            map.setOccupied_field(best_x,best_y,true);}
+            map.setOccupied_field(best_x,best_y,true);
+            mapContainer.setMapLocation(best_x,best_y,a+1);
+            //System.out.println("Działa");
+        }
+
         best_value=0;
         add=false;
     }
