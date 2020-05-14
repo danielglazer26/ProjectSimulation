@@ -26,11 +26,10 @@ abstract class Main {
         seed = scan.nextInt();
 
 
-
         RandomNumber randomNumber = new RandomNumber(seed);
-       TurnSystem turnSystem = new TurnSystem(map_size, number_cities, randomNumber);
-       turnSystem.simulationTurn(map_size, turn_number, number_cities);
-       //turnSystem.map_viewer(map_size);
+        TurnSystem turnSystem = new TurnSystem(turn_number, map_size, number_cities, randomNumber);
+        turnSystem.simulationTurn(map_size, turn_number, number_cities);
+        //turnSystem.map_viewer(map_size);
 
     }
 }
