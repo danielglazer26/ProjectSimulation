@@ -1,6 +1,6 @@
 package Projekt;
 
- class TurnValue {
+ class TurnValue {  //zlicza wartości pól dla danego miasta i sprawdza czy miasta może osiągnąć kolejny lvl
 
     private int areas_value;
 

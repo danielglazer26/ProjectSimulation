@@ -2,7 +2,7 @@ package Projekt;
 
 import java.util.ArrayList;
 
-abstract class CityLocalization {
+abstract class CityLocalization { // ustala startową lokalizacje miasta
     protected static void setLocalization(MapContainer mapContainer, ArrayList<City> city_table, MapGenerator map, int number_cities, int map_size, RandomNumber randomNumber) {
 
         for (int i = 0; i < number_cities; i++) {

@@ -5,7 +5,7 @@ import java.util.List;
 
 class MapGenerator {
 
-    List<List<Field>> map = new ArrayList<List<Field>>();
+    List<List<Field>> map = new ArrayList<List<Field>>(); //dwuwymiarowa lista przechowująca obiekty pól
 
     private boolean[][] occupied_field;           //tablica na razie tylko jako pomysł żeby rozwiązać problem z tym czy pole jest zajęte już przez kogoś czy nie
 

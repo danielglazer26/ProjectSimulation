@@ -1,8 +1,8 @@
 /*
 UWAGA !!!
 
-*Program nie zawiera na razie żadnych zabezpieczeń przeciwko błednymi danymi
-*Nie posiada na razie wersji okienkowej, która jest w planie
+*Program nie zawiera na razie żadnych zabezpieczeń przeciwko błednym danym
+*Nie posiada na razie wersji okienkowej, która jest prawie skończona
 
 
 

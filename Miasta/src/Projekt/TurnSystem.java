@@ -1,6 +1,6 @@
 package Projekt;
 
-class TurnSystem {
+class TurnSystem {   //Odpowiada za cały system tur
 
 
     MapContainer mapContainer;
