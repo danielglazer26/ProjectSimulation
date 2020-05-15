@@ -19,8 +19,8 @@ class CitiesEvolution {
 
         CityLocalization.setLocalization(mapContainer, city_table, mapGenerator, number_cities, map_size, randomNumber);
 
-        mapGenerator.viewOccupied(map_size); //dev
-        mapGenerator.map_viewer(map_size);
+        mapGenerator.viewOccupied(map_size); //mapa zajetych i wolnych pol
+        mapGenerator.map_viewer(map_size);  //mapa wartosci pol
         //mapContainer.getMap(map_size);
 
 
@@ -76,10 +76,10 @@ class CitiesEvolution {
             }
         }
         if (add) {
+            //dodanie pola do miasta
             city_table.get(a).setCity_area(best_x, best_y, 1);
             mapGenerator.setOccupied_field(best_x, best_y, true);
             mapContainer.setMapLocation(best_x, best_y, a + 1);
-            //System.out.println("Działa");
         }
 
         best_value = 0;

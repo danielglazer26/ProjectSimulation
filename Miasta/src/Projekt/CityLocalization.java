@@ -16,8 +16,7 @@ abstract class CityLocalization {
             mapContainer.setMapLocation(city_table.get(i).getX(), city_table.get(i).getY(), i + 1);
         }
     }
-    //Tutaj trzeba jakis sensowny warunek wymyślić na ustalanie lokalizacji startowych miast
-    //jakoś udało się bez tego, nie wiem czy ta klasa jest potrzebna wgl
+
 
 
 }

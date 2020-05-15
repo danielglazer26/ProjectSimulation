@@ -7,7 +7,6 @@ class TurnSystem {
     CitiesEvolution citiesEvolution;
     CitiesRelation citiesRelation;
     TurnValue turnValue;
-    // MapGenerator mapGenerator;
 
 
     protected TurnSystem(int turn_number, int map_size, int number_cities, RandomNumber randomNumber) {
@@ -15,20 +14,10 @@ class TurnSystem {
         citiesEvolution = new CitiesEvolution(map_size, number_cities, randomNumber, mapContainer);
         citiesRelation = new CitiesRelation(turn_number);
         turnValue = new TurnValue();
-        //  mapGenerator = new MapGenerator(map_size,randomNumber);  //utworzeie mapy
     }
 
-   /* protected void map_viewer(int map_size) //wersja deweloperska do sprawdzania mapy, potem się to wywali
-    {
-        for(int i=0;i<map_size;i++){
-            for(int j=0;j<map_size;j++){
-      System.out.print(mapGenerator.viewMap().get(i).get(j).getValue()+" ");
-    } System.out.println();
-        }}*/
-
-
     protected void simulationTurn(int map_size, int turn_number, int number_cities) {
-        mapContainer.getTestMap(map_size, turn_number);
+        //mapContainer.getTestMap(map_size, turn_number);
         for (int i = turn_number; i > 0; i--) {                              //Tura wszystkich miast
             for (int j = 0; j < number_cities; j++) {                       //Tura pojedynczego miasta
 
@@ -39,8 +28,8 @@ class TurnSystem {
                 if (turnValue.checkCityUpgrade(citiesEvolution.getCity_table().get(j).getFortune(), citiesEvolution.getCity_table().get(j).getCity_level())) { //sprawdzenie czy może zlevelować
                     citiesEvolution.cityEvolution(map_size, j, mapContainer);
                 }
-            }//mapContainer.getMap(map_size); //wyswietla mape
-            mapContainer.getTestMap(map_size, turn_number - i);
+            }mapContainer.getMap(map_size, turn_number - i); //wyswietla mape
+            //mapContainer.getTestMap(map_size, turn_number - i); //wyswietla mape testowa
         }
     }
 

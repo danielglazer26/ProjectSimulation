@@ -2,15 +2,16 @@ package Projekt;
 
 class MapContainer {
 
-    int[][] map_container;
-    int[][] test_map;
+    int[][] map_container; //mapa miast i wolnych pól
+    int[][] test_map; //mapa testowa miast i wartości pól
+
 
     MapContainer(int map_size) {
 
         map_container = new int[map_size][map_size];
         test_map = new int[map_size][map_size];
         for (int i = 0; i < map_size; i++) {
-            for (int j = 0; j < map_size; j++) {
+            for (int j = 0; j < map_size; j++) {           //utworzenie tablic (map)
                 map_container[i][j] = 0;
                 test_map[i][j] = 0;
             }
@@ -26,10 +27,11 @@ class MapContainer {
         return map_container[x][y];
     }
 
-    public void getMap(int map_size) {
+    public void getMap(int map_size,int turn) {
+        System.out.println("Tura: "+ turn);
         for (int i = 0; i < map_size; i++) {
             for (int j = 0; j < map_size; j++) {
-                System.out.print(map_container[i][j] + "   ");
+                System.out.print(map_container[i][j] + "   "); //wyswietlanie mapy w konsoli
             }
             System.out.println();
         }
@@ -41,7 +43,7 @@ class MapContainer {
         System.out.println("Tura: "+ turn);
         for (int i = 0; i < map_size; i++) {
             for (int j = 0; j < map_size; j++) {
-                System.out.print(test_map[i][j] + "   ");
+                System.out.print(test_map[i][j] + "   ");  //wyswietlanie mapy testowej w konsoli
             }
             System.out.println();
         }
@@ -51,7 +53,7 @@ class MapContainer {
     public void setTestMap(MapGenerator mapGenerator, int map_size) {
         for (int i = 0; i < map_size; i++)
             for (int j = 0; j < map_size; j++) {
-                test_map[i][j] = mapGenerator.viewMap().get(i).get(j).getValue();
+                test_map[i][j] = mapGenerator.viewMap().get(i).get(j).getValue(); //ustawienie mapy testowej na wartosci pol
             }
     }
 }
