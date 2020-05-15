@@ -1,5 +1,13 @@
 /*
-Version 1.0.5
+UWAGA !!!
+
+*Program nie zawiera na razie żadnych zabezpieczeń przeciwko błednymi danymi
+*Nie posiada na razie wersji okienkowej, która jest w planie
+
+
+
+
+
  */
 package Projekt;
 
@@ -9,7 +17,7 @@ abstract class Main {
 
     public static void main(String[] args) {
 
-        int number_cities, map_size, turn_number, seed;
+        int number_cities, map_size, turn_number, seed,  agression_rate;
 
         Scanner scan = new Scanner(System.in);
 
@@ -22,12 +30,15 @@ abstract class Main {
         System.out.println("Podaj liczbe tur:");
         turn_number = scan.nextInt();
 
+        System.out.println("Podaj współczynnik agresji (0,1):");
+        agression_rate = scan.nextInt();
+
         System.out.println("Podaj seed:");
         seed = scan.nextInt();
 
 
         RandomNumber randomNumber = new RandomNumber(seed);
-        TurnSystem turnSystem = new TurnSystem(turn_number, map_size, number_cities, randomNumber);
+        TurnSystem turnSystem = new TurnSystem(turn_number, map_size, number_cities, agression_rate, randomNumber);
         turnSystem.simulationTurn(map_size, turn_number, number_cities);
         //turnSystem.map_viewer(map_size);
 

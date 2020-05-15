@@ -4,7 +4,7 @@ package Projekt;
 
     private int areas_value;
 
-    public Boolean checkCityUpgrade (int city_value, int city_level){
+    public Boolean checkCityUpgrade (int city_value, int city_level){   //sprawdza czy miasto może zlevelować
         if (city_value > city_level * 50 )
             return  true;
         else
