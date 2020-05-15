@@ -9,10 +9,10 @@ class TurnSystem {
     TurnValue turnValue;
 
 
-    protected TurnSystem(int turn_number, int map_size, int number_cities, RandomNumber randomNumber) {
+    protected TurnSystem(int turn_number, int map_size, int number_cities, int agression_rate, RandomNumber randomNumber) {
         mapContainer = new MapContainer(map_size);
         citiesEvolution = new CitiesEvolution(map_size, number_cities, randomNumber, mapContainer);
-        citiesRelation = new CitiesRelation(turn_number);
+        citiesRelation = new CitiesRelation(turn_number, agression_rate);
         turnValue = new TurnValue();
     }
 

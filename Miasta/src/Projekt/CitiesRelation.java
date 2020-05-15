@@ -12,12 +12,13 @@ class CitiesRelation {
     private int city_robbed;
 
 
-    public CitiesRelation(int turn_number) {
+    public CitiesRelation(int turn_number, int agression_rate) {
 
-        turn_late_number = turn_number * 2 / 3;
+        turn_late_number = turn_number * (1 - agression_rate);
     }
 
-    public void cityInfluence(int turn, int map_size, int number_cities, int current_city, ArrayList<City> city_table, MapGenerator map, MapContainer mapContainer) {
+    protected void cityInfluence(int turn, int map_size, int number_cities, int current_city, ArrayList<City> city_table, MapGenerator map, MapContainer mapContainer) { // szuka zajętych pól o największej wartośći graniczących z terenami miasta
+                                                                                                                                                                        // po czym jeśli miasto obecne ma wyższy poziom od miasta od którego pole chce zabrać, zabiera mu je
         if (turn >= turn_late_number) {
 
             for (int i = 0; i < map_size; i++) {
@@ -87,7 +88,7 @@ class CitiesRelation {
 
     }
 
-    public Boolean cityCheck(int current_city, int number_cities, int x, int y, ArrayList<City> city_table) {
+    private Boolean cityCheck(int current_city, int number_cities, int x, int y, ArrayList<City> city_table) { // funkcja sprawdzająca do jakiego miasta należy dane pole i czy to miasto ma niższy poziom od miasta obecnego
         for (int i = 0; i < number_cities; i++) {
             if (current_city != i)
                 if (city_table.get(i).getCity_area(x, y) == 1)
