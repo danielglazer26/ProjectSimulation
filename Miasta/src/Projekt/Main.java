@@ -17,7 +17,8 @@ abstract class Main {
 
     public static void main(String[] args) {
 
-        int number_cities, map_size, turn_number, seed,  agression_rate;
+        int number_cities, map_size, turn_number, seed;
+        float agression_rate;
 
         Scanner scan = new Scanner(System.in);
 
@@ -31,7 +32,7 @@ abstract class Main {
         turn_number = scan.nextInt();
 
         System.out.println("Podaj współczynnik agresji (0,1):");
-        agression_rate = scan.nextInt();
+        agression_rate = scan.nextFloat();
 
         System.out.println("Podaj seed:");
         seed = scan.nextInt();

@@ -1,16 +1,17 @@
 package Projekt;
-
+//nowa wersja
 class City {
 
     private int fortune = 0;
     private int city_level = 1;
-    private int[][] city_area;
+    //private int[][] city_area;
     private int x;
     private int y;  //dodałem x,y dla przejrzystości
 
+    //wywaliłem talice city_area
 
     protected City(int map_size, RandomNumber randomNumber) {
-        city_area = new int[map_size][map_size];
+        //city_area = new int[map_size][map_size];
         x = randomNumber.getRandomNumber(map_size);
         y = randomNumber.getRandomNumber(map_size);
 
@@ -22,7 +23,7 @@ class City {
     }
 
     protected void setStartArea() {
-        city_area[x][y] = 2;
+        //city_area[x][y] = 2;
     }
 
 
@@ -54,7 +55,7 @@ class City {
         return y;
     }
 
-    public int getCity_area(int x, int y) {
+   /* public int getCity_area(int x, int y) {
         return city_area[x][y];
     }
 
@@ -65,6 +66,7 @@ class City {
     public void setCity_area(int x, int y, int value) {
         city_area[x][y] = value;
     }
+    */
 
 
 }

@@ -1,5 +1,5 @@
 package Projekt;
-
+//KLASA NIEPOTRZEBNA
 class MapContainer {
 
     int[][] map_container; //mapa miast i wolnych pól
