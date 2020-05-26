@@ -1,13 +1,13 @@
 package Projekt;
 //nowa wersja
 
-abstract  class Field {
+public abstract class Field {
 
-   private int value;
-   private int ownership; //numer miasta posiadającego pole
+    private int value;
+    private int ownership; //numer miasta posiadającego pole
 
 
-    protected int getValue() {
+    public int getValue() {
 
         return value;
     }
@@ -17,10 +17,11 @@ abstract  class Field {
         this.value = value;
     }
 
-    protected int getOwnership(){
-
+    public int getOwnership() {
         return ownership;
     }
 
-    protected void setOwnership(int ownership){this.ownership=ownership;}
+    protected void setOwnership(int ownership) {
+        this.ownership = ownership;
+    }
 }

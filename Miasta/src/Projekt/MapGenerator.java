@@ -3,7 +3,7 @@ package Projekt;
 import java.util.ArrayList;
 import java.util.List;
 
-class MapGenerator {
+public class MapGenerator {
 
     List<List<Field>> map = new ArrayList<List<Field>>(); //dwuwymiarowa lista przechowująca obiekty pól
 
@@ -43,7 +43,7 @@ class MapGenerator {
 
     }
 
-    protected List<List<Field>> viewMap() {
+    public List<List<Field>> viewMap() {
         return map;
     }
 

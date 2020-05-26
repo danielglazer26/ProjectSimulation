@@ -1,19 +1,23 @@
 package Projekt;
+
+import java.awt.*;
+
 //nowa wersja
-class City {
+public class City {
 
     private int fortune = 0;
     private int city_level = 1;
     //private int[][] city_area;
     private int x;
     private int y;  //dodałem x,y dla przejrzystości
-
+    private Color city_color;
     //wywaliłem talice city_area
 
     protected City(int map_size, RandomNumber randomNumber) {
         //city_area = new int[map_size][map_size];
         x = randomNumber.getRandomNumber(map_size);
         y = randomNumber.getRandomNumber(map_size);
+        city_color = new Color(randomNumber.getRandomNumber(256), randomNumber.getRandomNumber(256), randomNumber.getRandomNumber(256));
 
     }
 
@@ -53,6 +57,9 @@ class City {
 
     public int getY() {
         return y;
+    }
+    public Color getColor() {
+        return city_color;
     }
 
    /* public int getCity_area(int x, int y) {

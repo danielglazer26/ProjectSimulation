@@ -2,7 +2,7 @@ package Projekt;
 //nowa wersja
 import java.util.ArrayList;
 
-class CitiesEvolution {
+public class CitiesEvolution {
 
     private ArrayList<City> city_table = new ArrayList<>();
     private MapGenerator mapGenerator;
@@ -116,7 +116,7 @@ class CitiesEvolution {
         return mapGenerator;
     }
 
-    protected ArrayList<City> getCity_table() {
+    public ArrayList<City> getCity_table() {
         return city_table;
     }
 
