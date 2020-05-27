@@ -4,6 +4,7 @@ import java.awt.*;
 
 public class City {
 
+    private final Color city_color;
     private int fortune = 0;
     private int city_level = 1;
     private int x;
@@ -33,9 +34,12 @@ public class City {
     }
 
     public int getCity_level() {
-        this.city_level=this.fields_number;
+        this.city_level = this.fields_number;
+        if (this.fields_number == 0)
+            this.fortune = 0;
         return city_level;
     }
+
 
     public int getX() {
         return x;
@@ -44,6 +48,7 @@ public class City {
     public int getY() {
         return y;
     }
+
     public Color getColor() {
         return city_color;
     }

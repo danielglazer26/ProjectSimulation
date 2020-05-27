@@ -6,7 +6,7 @@ class TurnValue {  //zlicza wartości pól dla danego miasta i sprawdza czy mias
     private int areas_value;
 
     public Boolean checkCityUpgrade(int city_value, int city_level, int fields_number) {   //sprawdza czy miasto może zlevelować
-        if (city_value > 50 * fields_number * fields_number) {
+        if (city_value > (49 + fields_number) * fields_number * fields_number) {
             System.out.println(fields_number);
             return true;
         } else
