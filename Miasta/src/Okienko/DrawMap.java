@@ -28,6 +28,20 @@ public class DrawMap extends JPanel { //Klasa od rysowania, bałagan jak chuj al
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         System.out.println("Kurwa dzialaj"); // To już wyznacznik tego jak bardzo uwielbiam tą klasę
+        drawMap(map_size, lists, cities, g2d);
+        drawLegend(map_size, cities, g2d);
+    }
+
+    private void drawLegend(int map_size, ArrayList<City> cities, Graphics2D g2d) {
+        for (int i = 0; i < cities.size(); i++) {
+
+            g2d.drawString("Miasto", (map_size + 1) * 50, 50 + i * 50);
+            g2d.drawString("Poziom miasta: "+ cities.get(i).getCity_level(), (map_size + 1) * 50, 60 + i * 50);
+            g2d.drawString("Wartość miasta: "+ cities.get(i).getFortune(), (map_size + 1) * 50, 70 + i * 50);
+        }
+    }
+
+    private void drawMap(int map_size, List<List<Field>> lists, ArrayList<City> cities, Graphics2D g2d ) {
 
         for (int i = 0; i <= map_size; i++) {
             for (int j = 0; j <= map_size; j++) {

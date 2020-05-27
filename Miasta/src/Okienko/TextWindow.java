@@ -47,7 +47,7 @@ public class TextWindow extends JFrame implements ActionListener, WindowSettings
         this.getContentPane().add(inputPanel);
 
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < titles.length; i++) {
             text_field.get(i).addKeyListener(new KeyAdapter() {
                 @Override
                 public void keyTyped(KeyEvent e) {
@@ -65,7 +65,7 @@ public class TextWindow extends JFrame implements ActionListener, WindowSettings
                 if (ifCanGoForward()) {
                     setVisible(false);
                     MapWindow mapWindow = new MapWindow((int) values[0], (int) values[1], (int) values[2], values[3], (int) values[4]);
-                    mapWindow.timeToDraw(0,(int) values[1],(int)values[2],(int)values[0]);
+                    mapWindow.timeToDraw(0, (int) values[1], (int) values[2], (int) values[0]);
                 }
             }
         });
@@ -81,7 +81,7 @@ public class TextWindow extends JFrame implements ActionListener, WindowSettings
     }
 
     private Boolean isNumber(char c) {
-        return c >= '0' && c <= '9';
+        return (c >= '0' && c <= '9') || c == '.';
     }
 
     private Boolean ifCanGoForward() {

@@ -35,7 +35,7 @@ public class City {
         this.fortune += fortune;
     }
 
-    protected int getFortune() {
+    public int getFortune() {
         return fortune;
     }
 
