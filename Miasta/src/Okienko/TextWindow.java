@@ -13,7 +13,7 @@ public class TextWindow extends JFrame implements ActionListener, WindowSettings
     private final ArrayList<JTextField> text_field = new ArrayList<>();
     String[] titles = {"Ilość miast", "Powierzchnia mapy", "Ilość tur", "Współczynnik agresji", "Seed"};
     private int easter_egg = 0;
-    private float[] values = new float[5];
+    private final float[] values = new float[5];
 
     public TextWindow() {
 
@@ -43,6 +43,12 @@ public class TextWindow extends JFrame implements ActionListener, WindowSettings
         JButton button = new JButton("Okej");
         inputPanel.add(button, gbc);
 
+        text_field.get(0).setText("5");                        //wartosci startowe
+        text_field.get(1).setText("15");
+        text_field.get(2).setText("100");
+        text_field.get(3).setText("0.8");
+        text_field.get(4).setText("2526");
+
 
         this.getContentPane().add(inputPanel);
 
@@ -51,22 +57,17 @@ public class TextWindow extends JFrame implements ActionListener, WindowSettings
             text_field.get(i).addKeyListener(new KeyAdapter() {
                 @Override
                 public void keyTyped(KeyEvent e) {
-                    if (!isNumber(e.getKeyChar())) {
-                        e.consume();
-                    }
+                    if (!isNumber(e.getKeyChar())) e.consume();
                 }
             });
         }
 
 
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (ifCanGoForward()) {
-                    setVisible(false);
-                    MapWindow mapWindow = new MapWindow((int) values[0], (int) values[1], (int) values[2], values[3], (int) values[4]);
-                    mapWindow.timeToDraw(0, (int) values[1], (int) values[2], (int) values[0]);
-                }
+        button.addActionListener(e -> {
+            if (ifCanGoForward()) {
+                setVisible(false);
+                MapWindow mapWindow = new MapWindow((int) values[0], (int) values[1], (int) values[2], values[3], (int) values[4]);
+                mapWindow.timeToDraw(0, (int) values[1], (int) values[2], (int) values[0]);
             }
         });
 
