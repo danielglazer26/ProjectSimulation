@@ -34,6 +34,8 @@ public class City {
 
     public int getCity_level() {
         this.city_level=this.fields_number;
+        if(this.fields_number==0)
+        {this.fortune=0;}
         return city_level;
     }
 
