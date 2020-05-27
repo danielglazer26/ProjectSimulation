@@ -29,7 +29,7 @@ public class TurnSystem  {   //Odpowiada za cały system tur
 
             if (turnValue.checkCityUpgrade(citiesEvolution.getCity_table().get(j).getFortune(), citiesEvolution.getCity_table().get(j).getCity_level())) { //sprawdzenie czy może zlevelować
                 citiesEvolution.cityEvolution(map_size, j);
-                citiesRelation.cityInfluence(turn_number - i, map_size, number_cities, j, citiesEvolution.getCity_table(), citiesEvolution.getMap());
+                citiesRelation.cityInfluence(i, map_size, number_cities, j, citiesEvolution.getCity_table(), citiesEvolution.getMap());
                 if (citiesEvolution.getAdd1() && citiesRelation.getAdd2()) {
                     if (citiesEvolution.getMap().getValue(citiesEvolution.getBest_x1(), citiesEvolution.getBest_y1()) > citiesEvolution.getMap().getValue(citiesRelation.getBest_x2(), citiesRelation.getBest_y2())) {
                         citiesEvolution.getMap().setOwnership(citiesEvolution.getBest_x1(), citiesEvolution.getBest_y1(), j + 1);
@@ -40,7 +40,8 @@ public class TurnSystem  {   //Odpowiada za cały system tur
                 } else {
                     if (citiesEvolution.getAdd1()) {
                         citiesEvolution.getMap().setOwnership(citiesEvolution.getBest_x1(), citiesEvolution.getBest_y1(), j + 1);
-                    } else {
+                    }
+                    if(citiesRelation.getAdd2()){
                         citiesEvolution.getMap().setOwnership(citiesRelation.getBest_x2(), citiesRelation.getBest_y2(), j + 1);
                     }
                 }

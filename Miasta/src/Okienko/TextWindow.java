@@ -65,8 +65,7 @@ public class TextWindow extends JFrame implements ActionListener, WindowSettings
                 if (ifCanGoForward()) {
                     setVisible(false);
                     MapWindow mapWindow = new MapWindow((int) values[0], (int) values[1], (int) values[2], values[3], (int) values[4]);
-                    for (int i = (int) values[2]; i > 0; i--)
-                        mapWindow.timeToDraw(i);
+                    mapWindow.timeToDraw(0,(int) values[1],(int)values[2],(int)values[0]);
                 }
             }
         });

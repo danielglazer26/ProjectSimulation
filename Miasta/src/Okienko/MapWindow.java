@@ -12,7 +12,7 @@ public class MapWindow extends JFrame implements WindowSettings, ActionListener 
 
     Timer timer;
     TurnSystem turnSystem;
-    int i;
+    int current_turn;
 
     public MapWindow(int number_cities, int map_size, int turn_number, float agression_rate, int seed) {
 
@@ -30,7 +30,8 @@ public class MapWindow extends JFrame implements WindowSettings, ActionListener 
         timer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                turnSystem.simulationTurn(i, map_size, turn_number, number_cities);
+                current_turn++;
+                turnSystem.simulationTurn(current_turn, map_size, turn_number, number_cities);
                 repaint();
 
             }
@@ -38,9 +39,13 @@ public class MapWindow extends JFrame implements WindowSettings, ActionListener 
 
     }
 
-    void timeToDraw(int i) {
-        this.i = i;
+    void timeToDraw(int i, int map_size, int turn_number, int number_cities) {
+        this.current_turn=i;
         timer.start();
+        if(i<turn_number){
+            turnSystem.simulationTurn(i,map_size,turn_number,number_cities);
+            repaint();
+        }
     }
 
     @Override

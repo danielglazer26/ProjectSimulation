@@ -20,11 +20,15 @@ class CitiesRelation {
 
     protected void cityInfluence(int turn, int map_size, int number_cities, int current_city, ArrayList<City> city_table, MapGenerator map) { // szuka zajętych pól o największej wartośći graniczących z terenami miasta
         // po czym jeśli miasto obecne ma wyższy poziom od miasta od którego pole chce zabrać, zabiera mu je
-        best_x = 0;
-        best_y = 0;
-        best_value = 0;
+
         add = false;
+        //System.out.println("Tura:"+turn+"TLN:"+turn_late_number);
         if (turn >= turn_late_number) {
+
+            best_x = 0;
+            best_y = 0;
+            best_value = 0;
+
 
             for (int i = 0; i < map_size; i++) {
                 for (int j = 0; j < map_size; j++) {
