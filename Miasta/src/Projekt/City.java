@@ -9,6 +9,7 @@ public class City {
     private int x;
     private int y;  //dodałem x,y dla przejrzystości
     private Color city_color;
+    private int fields_number;
 
     protected City(int map_size, RandomNumber randomNumber) {
         x = randomNumber.getRandomNumber(map_size);
@@ -32,6 +33,7 @@ public class City {
     }
 
     public int getCity_level() {
+        this.city_level=this.fields_number;
         return city_level;
     }
 
@@ -53,6 +55,12 @@ public class City {
     public Color getColor() {
         return city_color;
     }
+
+    public int getFields_number(){return fields_number;}
+
+    public void addFields_number(){this.fields_number++;}
+
+    public void setFields_number(){this.fields_number=0;}
 
 
 }

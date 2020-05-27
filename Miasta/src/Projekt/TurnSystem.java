@@ -27,7 +27,7 @@ public class TurnSystem  {   //Odpowiada za cały system tur
             //wygląda okropnie a działa jeszcze lepiej XDDD  //<3
             //chodzi w skrócie o to żeby miasto w jednej turze nie brało wolnego pola i jednocześnie pola innego miasta
 
-            if (turnValue.checkCityUpgrade(citiesEvolution.getCity_table().get(j).getFortune(), citiesEvolution.getCity_table().get(j).getCity_level())) { //sprawdzenie czy może zlevelować
+            if (turnValue.checkCityUpgrade(citiesEvolution.getCity_table().get(j).getFortune(), citiesEvolution.getCity_table().get(j).getCity_level(),citiesEvolution.getCity_table().get(j).getFields_number())) { //sprawdzenie czy może zlevelować
                 citiesEvolution.cityEvolution(map_size, j);
                 citiesRelation.cityInfluence(i, map_size, number_cities, j, citiesEvolution.getCity_table(), citiesEvolution.getMap());
                 if (citiesEvolution.getAdd1() && citiesRelation.getAdd2()) {

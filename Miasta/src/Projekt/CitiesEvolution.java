@@ -24,7 +24,7 @@ public class CitiesEvolution {
     }
 
     protected void cityEvolution(int map_size, int a) {
-        city_table.get(a).addLevel();    // zwieksza lvl miasta
+        //city_table.get(a).addLevel();    // zwieksza lvl miasta
 
         best_x=0;
         best_y=0;
@@ -32,7 +32,7 @@ public class CitiesEvolution {
         add = false;
         for (int i = 0; i < map_size; i++) {                           //algorytm wyboru nowego pola KONCEPCJA
             for (int j = 0; j < map_size; j++) {
-                if (/*city_table.get(a).getCity_area(i, j) != 0*/getMap().getOwnership(i,j)==a+1) {
+                if (getMap().getOwnership(i,j)==a+1) {
                     // Wtedy powinno tu być coś co sprawdza wartości pól wokół pola które należy do miasta
                     // po czym dla jakis wspolrzednych które mają najlepsza wartosc będzie sprawdzać czy pole jest zajete:
                     // algorytm na debila ale powinien działać xD                   //<3 Takie algorytmy najlepsze XDD

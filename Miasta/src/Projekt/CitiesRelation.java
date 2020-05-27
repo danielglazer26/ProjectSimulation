@@ -97,7 +97,7 @@ class CitiesRelation {
         for (int i = 0; i < number_cities; i++) {
             if (current_city != i)
                 if (map.getOwnership(x, y) == i + 1)
-                    if (city_table.get(current_city).getCity_level() > city_table.get(i).getCity_level()) {
+                    if (city_table.get(current_city).getFortune() > city_table.get(i).getFortune()) {
                         return true;
                     }
 
