@@ -1,27 +1,23 @@
 package Projekt;
-//nowa wersja
+
 import java.util.ArrayList;
 
 public class CitiesEvolution {
 
     private ArrayList<City> city_table = new ArrayList<>();
     private MapGenerator mapGenerator;
-    private int best_x = 0;
-    private int best_y = 0;
-    private int best_value = 0;
-    private boolean add = false;
+    private int best_x;
+    private int best_y;
+    private int best_value;
+    private boolean add;
 
 
     protected CitiesEvolution(int map_size, int number_cities, RandomNumber randomNumber) {
 
         mapGenerator = new MapGenerator(map_size, randomNumber);
-        //mapContainer.setTestMap(mapGenerator, map_size);
 
         CityLocalization.setLocalization(city_table, mapGenerator, number_cities, map_size, randomNumber);
 
-        //mapGenerator.viewOccupied(map_size); //mapa zajetych i wolnych pol
-        //mapGenerator.map_viewer(map_size);  //mapa wartosci pol
-        //mapContainer.getMap(map_size);
         mapGenerator.map_viewer(map_size);
 
 
@@ -42,7 +38,7 @@ public class CitiesEvolution {
                     // algorytm na debila ale powinien działać xD                   //<3 Takie algorytmy najlepsze XDD
                     //zmieniłem na getOwnership
                     if (i > 0)
-                        if (/*city_table.get(a).getCity_area(i - 1, j) == 0 && */mapGenerator.getOwnership(i - 1, j)==0) {
+                        if (mapGenerator.getOwnership(i - 1, j)==0) {
                             if (mapGenerator.viewMap().get(i - 1).get(j).getValue() > best_value) {
                                 best_x = i - 1;
                                 best_y = j;
@@ -51,7 +47,7 @@ public class CitiesEvolution {
                             }
                         }
                     if (i < map_size - 1)
-                        if (/*city_table.get(a).getCity_area(i + 1, j) == 0 && */mapGenerator.getOwnership(i + 1, j)==0) {
+                        if (mapGenerator.getOwnership(i + 1, j)==0) {
                             if (mapGenerator.viewMap().get(i + 1).get(j).getValue() > best_value) {
                                 best_x = i + 1;
                                 best_y = j;
@@ -61,7 +57,7 @@ public class CitiesEvolution {
 
                         }
                     if (j > 0)
-                        if (/*city_table.get(a).getCity_area(i, j - 1) == 0 && */mapGenerator.getOwnership(i, j - 1)==0) {
+                        if (mapGenerator.getOwnership(i, j - 1)==0) {
                             if (mapGenerator.viewMap().get(i).get(j - 1).getValue() > best_value) {
                                 best_x = i;
                                 best_y = j - 1;
@@ -70,7 +66,7 @@ public class CitiesEvolution {
                             }
                         }
                     if (j < map_size - 1)
-                        if (/*city_table.get(a).getCity_area(i, j + 1) == 0 && */mapGenerator.getOwnership(i, j + 1)==0) {
+                        if (mapGenerator.getOwnership(i, j + 1)==0) {
                             if (mapGenerator.viewMap().get(i).get(j + 1).getValue() > best_value) {
                                 best_x = i;
                                 best_y = j + 1;
@@ -81,16 +77,6 @@ public class CitiesEvolution {
                 }
             }
         }
-       // if (add) {
-            //dodanie pola do miasta
-            //city_table.get(a).setCity_area(best_x, best_y, 1);
-            //mapGenerator.setOccupied_field(best_x, best_y, true);
-            //mapContainer.setMapLocation(best_x, best_y, a + 1);
-            //mapGenerator.setOwnership(best_x,best_y,a+1); //zmiana na przechowywanie w klasie Field
-
-
-        //}
-
 
     }
 
@@ -107,10 +93,6 @@ public class CitiesEvolution {
     public boolean getAdd1(){
         return add;
     }
-
-    /*public Boolean checkIfField(int x, int y){
-        return mapGenerator.getOccupied_field(x,y);
-    }*/
 
     public MapGenerator getMap() {
         return mapGenerator;

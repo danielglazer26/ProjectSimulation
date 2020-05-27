@@ -1,5 +1,5 @@
 package Projekt;
-//nowa wersja
+
 
 public abstract class Field {
 
