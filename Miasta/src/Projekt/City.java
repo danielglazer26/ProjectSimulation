@@ -6,7 +6,6 @@ public class City {
 
     private final Color city_color;
     private int fortune = 0;
-    private int city_level = 1;
     private int x;
     private int y;  //dodałem x,y dla przejrzystości
     private int fields_number;
@@ -34,7 +33,7 @@ public class City {
     }
 
     public int getCity_level() {
-        this.city_level = this.fields_number;
+        int city_level = this.fields_number;
         if (this.fields_number == 0)
             this.fortune = 0;
         return city_level;
