@@ -10,11 +10,10 @@ abstract class CityLocalization { // ustala startową lokalizacje miasta
             city_table.add(new City(map_size, randomNumber));
             do {
                 city_table.get(i).localizationChange(map_size, randomNumber);
-            } while (map.getOwnership(city_table.get(i).getX(), city_table.get(i).getY())!=0 || map.getValue(city_table.get(i).getX(),city_table.get(i).getY())==-1);
-            map.setOwnership(city_table.get(i).getX(), city_table.get(i).getY(),i+1); //ustawienie że pole jest zajęte
+            } while (map.getOwnership(city_table.get(i).getX(), city_table.get(i).getY()) != 0 || map.getValue(city_table.get(i).getX(), city_table.get(i).getY()) == -1);
+            map.setOwnership(city_table.get(i).getX(), city_table.get(i).getY(), i + 1); //ustawienie że pole jest zajęte
         }
     }
-
 
 
 }

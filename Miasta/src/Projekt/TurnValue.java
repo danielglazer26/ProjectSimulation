@@ -1,11 +1,9 @@
 package Projekt;
 
 //nowa wersja
-class TurnValue {  //zlicza wartości pól dla danego miasta i sprawdza czy miasta może osiągnąć kolejny lvl
+abstract class TurnValue {  //zlicza wartości pól dla danego miasta i sprawdza czy miasta może osiągnąć kolejny lvl
 
-    private int areas_value;
-
-    public Boolean checkCityUpgrade(int city_value, int city_level, int fields_number) {   //sprawdza czy miasto może zlevelować
+    public static Boolean checkCityUpgrade(int city_value, int fields_number) {   //sprawdza czy miasto może zlevelować
         if (city_value > (49 + fields_number) * fields_number * fields_number) {
             System.out.println(fields_number);
             return true;
@@ -14,8 +12,8 @@ class TurnValue {  //zlicza wartości pól dla danego miasta i sprawdza czy mias
 
     }
 
-    public int countFieldValue(int map_size, int city_number, CitiesEvolution citiesEvolution) {      //zlicza wartosc wszystkich posiadanych pól
-        areas_value = 0;
+    public static int countFieldValue(int map_size, int city_number, CitiesEvolution citiesEvolution) {      //zlicza wartosc wszystkich posiadanych pól
+        int areas_value = 0;
         citiesEvolution.getCity_table().get(city_number).setFields_number();
         for (int i = 0; i < map_size; i++) {
             for (int j = 0; j < map_size; j++) {

@@ -9,10 +9,10 @@ public class City {
     private int city_level = 1;
     private int x;
     private int y;  //dodałem x,y dla przejrzystości
-    private final Color city_color;
     private int fields_number;
 
     protected City(int map_size, RandomNumber randomNumber) {
+
         x = randomNumber.getRandomNumber(map_size);
         y = randomNumber.getRandomNumber(map_size);
         city_color = new Color(randomNumber.getRandomNumber(256), randomNumber.getRandomNumber(256), randomNumber.getRandomNumber(256));

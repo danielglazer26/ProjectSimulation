@@ -11,7 +11,7 @@ public class MapGenerator {
 
 
         for (int i = 0; i < map_size; i++) {
-            map.add(new ArrayList<Field>());
+            map.add(new ArrayList<>());
         }
         for (int i = 0; i < map_size; i++) {
             for (int j = 0; j < map_size; j++) {

@@ -11,9 +11,9 @@ import java.util.ArrayList;
 public class TextWindow extends JFrame implements ActionListener, WindowSettings {
 
     private final ArrayList<JTextField> text_field = new ArrayList<>();
-    String[] titles = {"Ilość miast", "Powierzchnia mapy", "Ilość tur", "Współczynnik agresji", "Seed"};
-    private int easter_egg = 0;
     private final float[] values = new float[5];
+    String[] titles = {"Ilość miast", "Powierzchnia mapy", "Ilość tur", "Współczynnik agresji < 0 , 1 >", "Seed"};
+    private int easter_egg = 0;
 
     public TextWindow() {
 
@@ -98,9 +98,14 @@ public class TextWindow extends JFrame implements ActionListener, WindowSettings
                 return false;
             }
         }
+        if (values[3] > 1) {
+            JOptionPane.showMessageDialog(rootPane, "Współczynnik agresji musi być niewiększy niż 1");
+            easter_egg++;
+            return false;
+        }
 
-        if (values[0] < values[1])
-            return true;
+            if (values[0] < values[1])
+                return true;
 
         if (easter_egg < 3) {
             JOptionPane.showMessageDialog(rootPane, "Niepoprawna ilość miast. Ilość miast musi być mniejsza niż powierzchnia mapy");
