@@ -3,22 +3,19 @@ package Okienko;
 
 import Projekt.RandomNumber;
 import Projekt.TurnSystem;
-
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
+
 
 public class MapWindow extends JFrame implements WindowSettings, ActionListener {
 
-    static int current_turn;
+    private static int current_turn;
     public int delay = 1000;
-    Timer timer;
-    TurnSystem turnSystem;
-    JButton bar, bar2, bar3;
-    Boolean is_paused = true;
+    private final Timer timer;
+    private final TurnSystem turnSystem;
+    private JButton bar, bar2, bar3;
+    private Boolean is_paused = true;
 
     public MapWindow(int number_cities, int map_size, int turn_number, float agression_rate, int seed) {
 
@@ -52,7 +49,7 @@ public class MapWindow extends JFrame implements WindowSettings, ActionListener 
     }
 
 
-    void timeToDraw(int i, int map_size, int turn_number, int number_cities) {
+    protected void timeToDraw(int i, int map_size, int turn_number, int number_cities) {
         current_turn = i;
         if (i < turn_number) {
             timer.start();
@@ -60,10 +57,12 @@ public class MapWindow extends JFrame implements WindowSettings, ActionListener 
             repaint();
         } else {
             timer.stop();
+            WriteToFile.printToFile(turnSystem.citiesEvolution.getCity_table());
         }
     }
 
-    public void buttonCreator(int map_size) {
+    private void buttonCreator(int map_size) {
+
         bar = new DelayButton(new ImageIcon("button_left.png"));
         bar2 = new DelayButton(new ImageIcon("button_right.png"));
         bar3 = new DelayButton(new ImageIcon("square.png"));
@@ -71,8 +70,8 @@ public class MapWindow extends JFrame implements WindowSettings, ActionListener 
         bar2.addActionListener(this);
         bar3.addActionListener(this);
         bar.setBounds(map_size * 50 + 20, (map_size - 1) * 50 + 10, 100, 50);
-        bar2.setBounds(map_size * 50 + 170, (map_size - 1) * 50 + 10, 100, 50);
         bar3.setBounds(map_size * 50 + 120, (map_size - 1) * 50 + 10, 50, 50);
+        bar2.setBounds(map_size * 50 + 170, (map_size - 1) * 50 + 10, 100, 50);
         this.getLayeredPane().add(bar);
         this.getLayeredPane().add(bar2);
         this.getLayeredPane().add(bar3);

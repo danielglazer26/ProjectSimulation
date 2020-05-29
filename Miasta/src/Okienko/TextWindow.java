@@ -6,13 +6,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.util.ArrayList;
 
 public class TextWindow extends JFrame implements ActionListener, WindowSettings {
 
     private final ArrayList<JTextField> text_field = new ArrayList<>();
     private final float[] values = new float[5];
-    String[] titles = {"Ilość miast", "Powierzchnia mapy", "Ilość tur", "Współczynnik agresji < 0 , 1 >", "Seed"};
+    private final String[] titles = {"Ilość miast", "Powierzchnia mapy", "Ilość tur", "Współczynnik agresji < 0 , 1 >", "Seed"};
     private int easter_egg = 0;
 
     public TextWindow() {
@@ -68,6 +69,8 @@ public class TextWindow extends JFrame implements ActionListener, WindowSettings
                 setVisible(false);
                 MapWindow mapWindow = new MapWindow((int) values[0], (int) values[1], (int) values[2], values[3], (int) values[4]);
                 mapWindow.timeToDraw(0, (int) values[1], (int) values[2], (int) values[0]);
+                WriteToFile.createFile();
+                WriteToFile.printToFile(titles, values);
             }
         });
 
