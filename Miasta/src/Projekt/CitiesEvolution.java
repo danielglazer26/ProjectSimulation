@@ -2,16 +2,31 @@ package Projekt;
 
 import java.util.ArrayList;
 
+/**
+ * Klasa odpowiada za ewolucje miast
+ */
 public class CitiesEvolution {
 
+    /**lista mist*/
     private ArrayList<City> city_table = new ArrayList<>();
+    /**obiekt odpowiadajacy za tworzenie mapy*/
     private MapGenerator mapGenerator;
+    /**wspolrzedna x najlepszego pola*/
     private int best_x;
+    /**wspolrzedna y najlepszego pola*/
     private int best_y;
+    /**wartosc najlepszego pola*/
     private int best_value;
+    /**true jesli algorytm wyboru pola wykonal sie w obecnej turze*/
     private boolean add;
 
-
+    /**
+     * Wywoluje mapGenerator, ktory tworzy mape a nastepnie
+     * setLocalization ustala polozenie poczatkowe miast
+     * @param map_size szerokosc mapy
+     * @param number_cities liczba miast
+     * @param randomNumber obiekt odpowiadajacy za liczby pseudolosowe
+     */
     protected CitiesEvolution(int map_size, int number_cities, RandomNumber randomNumber) {
 
         mapGenerator = new MapGenerator(map_size, randomNumber);
@@ -23,29 +38,30 @@ public class CitiesEvolution {
 
     }
 
+    /**
+     * Wybiera najlepsze pole (o najwiekszej wartosci), ktore jest wolne i obok posiadanego pola.
+     * @param map_size szerokosc mapy
+     * @param a numer miasta ktore jest sprawdzane
+     */
     protected void cityEvolution(int map_size, int a) {
-        //city_table.get(a).addLevel();    // zwieksza lvl miasta
 
         best_x=0;
         best_y=0;
         best_value = 0;
         add = false;
-        for (int i = 0; i < map_size; i++) {                           //algorytm wyboru nowego pola KONCEPCJA
+        for (int i = 0; i < map_size; i++) {               //sprawdzanie dla kolejnych wspolrzednych mapy
             for (int j = 0; j < map_size; j++) {
-                if (getMap().getOwnership(i,j)==a+1) {
-                    // Wtedy powinno tu być coś co sprawdza wartości pól wokół pola które należy do miasta
-                    // po czym dla jakis wspolrzednych które mają najlepsza wartosc będzie sprawdzać czy pole jest zajete:
-                    // algorytm na debila ale powinien działać xD                   //<3 Takie algorytmy najlepsze XDD
-                    //zmieniłem na getOwnership
+                if (getMap().getOwnership(i,j)==a+1) {    //sprawdzenie czy pole nalezy do miasta
                     if (i > 0)
-                        if (mapGenerator.getOwnership(i - 1, j)==0) {
-                            if (mapGenerator.viewMap().get(i - 1).get(j).getValue() > best_value) {
+                        if (mapGenerator.getOwnership(i - 1, j)==0) {  //sprawdzenie czy pole jest wolne
+                            if (mapGenerator.viewMap().get(i - 1).get(j).getValue() > best_value) {  //sprawdzenie czy obecne pole ma wieksza wartosc
                                 best_x = i - 1;
                                 best_y = j;
                                 best_value = mapGenerator.viewMap().get(i - 1).get(j).getValue();
                                 add = true;
                             }
                         }
+                    //to samo ale dla innych wspolrzednych aby nie wyjsc poza mape
                     if (i < map_size - 1)
                         if (mapGenerator.getOwnership(i + 1, j)==0) {
                             if (mapGenerator.viewMap().get(i + 1).get(j).getValue() > best_value) {
@@ -56,6 +72,7 @@ public class CitiesEvolution {
                             }
 
                         }
+                    //to samo ale dla innych wspolrzednych aby nie wyjsc poza mape
                     if (j > 0)
                         if (mapGenerator.getOwnership(i, j - 1)==0) {
                             if (mapGenerator.viewMap().get(i).get(j - 1).getValue() > best_value) {
@@ -65,6 +82,7 @@ public class CitiesEvolution {
                                 add = true;
                             }
                         }
+                    //to samo ale dla innych wspolrzednych aby nie wyjsc poza mape
                     if (j < map_size - 1)
                         if (mapGenerator.getOwnership(i, j + 1)==0) {
                             if (mapGenerator.viewMap().get(i).get(j + 1).getValue() > best_value) {
@@ -80,24 +98,52 @@ public class CitiesEvolution {
 
     }
 
+    /**
+     * Sprawdza wartosc pola
+     * @param x wspolrzedna x
+     * @param y wspolrzedna y
+     * @return wartosc sprawdzanego pola
+     */
     public int checkField(int x, int y) {
         return mapGenerator.viewMap().get(x).get(y).getValue();
     }
+
+    /**
+     *
+     * @return Zwraca wspolrzedna x
+     */
     public int getBest_x1(){
         return best_x;
     }
+
+    /**
+     *
+     * @return Zwraca wspolrzedna y
+     */
     public int getBest_y1(){
         return best_y;
     }
 
+    /**
+     *
+     * @return Zwraca true jesli algorytm wybral nowe najlepsze pole
+     */
     public boolean getAdd1(){
         return add;
     }
 
+    /**
+     *
+     * @return Zwraca obiekt przechowujacy mape
+     */
     public MapGenerator getMap() {
         return mapGenerator;
     }
 
+    /**
+     *
+     * @return Zwraca liste miast
+     */
     public ArrayList<City> getCity_table() {
         return city_table;
     }

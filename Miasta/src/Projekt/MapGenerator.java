@@ -3,10 +3,19 @@ package Projekt;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Klasa odpowiedzialna za utworzenie mapy
+ */
 public class MapGenerator {
 
-    List<List<Field>> map = new ArrayList<List<Field>>(); //dwuwymiarowa lista przechowująca obiekty pól
+    /**dwuwymiarowa lista przechowujaca obiekty pol*/
+    List<List<Field>> map = new ArrayList<List<Field>>();
 
+    /**
+     * Utworzenie mapy
+     * @param map_size szerokosc mapy
+     * @param randomNumber liczby pseudolosowe
+     */
     protected MapGenerator(int map_size, RandomNumber randomNumber) {
 
 
@@ -39,19 +48,39 @@ public class MapGenerator {
 
     }
 
+    /**
+     *
+     * @return zwraca mape
+     */
     public List<List<Field>> viewMap() {
         return map;
     }
 
+    /**
+     *
+     * @param x wspolrzedna x
+     * @param y wspolrzedna y
+     * @return zwraca numer miasta posiadajacego pole
+     */
     protected int getOwnership(int x,int y){
         return map.get(x).get(y).getOwnership();
     }
 
+    /**
+     * Ustawia do ktorego miasta nalezy pole
+     * @param x wspolrzedna x
+     * @param y wspolrzedna y
+     * @param own numer miasta
+     */
     protected void setOwnership(int x, int y, int own){
         map.get(x).get(y).setOwnership(own);
     }
 
-    protected void map_viewer(int map_size) //wersja deweloperska do sprawdzania mapy, potem się to wywali
+    /**
+     * Sprawdzanie mapy w konsoli (testy)
+     * @param map_size szerokosc mapy
+     */
+    protected void map_viewer(int map_size) //wersja deweloperska do sprawdzania mapy
     {
         for (int i = 0; i < map_size; i++) {
             for (int j = 0; j < map_size; j++) {
@@ -61,16 +90,13 @@ public class MapGenerator {
         }
         System.out.println();
     }
-    protected void value_viewer(int map_size) //wersja deweloperska do sprawdzania mapy, potem się to wywali
-    {
-        for (int i = 0; i < map_size; i++) {
-            for (int j = 0; j < map_size; j++) {
-                System.out.print(map.get(i).get(j).getValue()+" ");
-            }
-            System.out.println();
-        }
-        System.out.println();
-    }
+
+    /**
+     *
+     * @param x wspolrzedna x
+     * @param y wspolrzedna y
+     * @return zwraca wartosc pola
+     */
     protected int getValue(int x, int y){
         return map.get(x).get(y).getValue();
     }

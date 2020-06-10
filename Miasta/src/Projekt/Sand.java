@@ -1,8 +1,11 @@
 package Projekt;
 
-class Sand extends Field {                                         //
-                                                                  //
-    private final int value = 5; //3 jest chyba za brutalne xD \\//
+/**
+ * Pole reprezentujace pustynie
+ */
+class Sand extends Field {
+    /**wartosc pola*/
+    private final int value = 5;
 
     protected Sand(){
        super.setValue(value);
