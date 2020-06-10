@@ -3,6 +3,7 @@ package Okienko;
 
 import Projekt.RandomNumber;
 import Projekt.TurnSystem;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,34 +12,44 @@ import java.awt.event.ActionListener;
 public class MapWindow extends JFrame implements WindowSettings, ActionListener {
 
     private static int current_turn;
-    public int delay = 1000;
     private final Timer timer;
     private final TurnSystem turnSystem;
+    private int window_resizable = 50;
+    private int delay = 1000;
     private JButton bar, bar2, bar3;
     private Boolean is_paused = true;
+    private ImageIcon img1 = new ImageIcon("button_left.png");
+    private ImageIcon img2 = new ImageIcon("button_right.png");
+    private ImageIcon img3 = new ImageIcon("square.png");
+    private ImageIcon img4 = new ImageIcon("play.png");
 
     public MapWindow(int number_cities, int map_size, int turn_number, float agression_rate, int seed) {
 
         turnSystem = new TurnSystem(turn_number, map_size, number_cities, agression_rate, new RandomNumber(seed));
 
         this.setTitle(title);
-        this.setBounds((x - (5 + map_size) * 50 + 38) / 2, (y - map_size * 50 + 60) / 2, (5 + map_size) * 50 + 38, map_size * 50 + 60);
+        while (true) {
+            if (map_size * window_resizable + 60 < y) {
+                break;
+            } else {
+                window_resizable--;
+            }
+        }
         this.setResizable(false);
+        this.setSize((5 + map_size) * window_resizable + 38, map_size * window_resizable + 60);
+        this.setLocationRelativeTo(null);
 
-        this.getContentPane().add(new DrawMap(map_size, turnSystem.citiesEvolution.getMap().viewMap(), turnSystem.citiesEvolution.getCity_table()));
+        this.getContentPane().add(new DrawMap(map_size, window_resizable, turnSystem.citiesEvolution.getMap().viewMap(), turnSystem.citiesEvolution.getCity_table()));
         buttonCreator(map_size);
 
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        timer = new Timer(delay, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                current_turn++;
-                timeToDraw(current_turn, map_size, turn_number, number_cities);
-                repaint();
+        timer = new Timer(delay, e -> {
+            current_turn++;
+            timeToDraw(current_turn, map_size, turn_number, number_cities);
+            repaint();
 
-            }
         });
 
     }
@@ -63,15 +74,22 @@ public class MapWindow extends JFrame implements WindowSettings, ActionListener 
 
     private void buttonCreator(int map_size) {
 
-        bar = new DelayButton(new ImageIcon("button_left.png"));
-        bar2 = new DelayButton(new ImageIcon("button_right.png"));
-        bar3 = new DelayButton(new ImageIcon("square.png"));
+        img1.setImage(img1.getImage().getScaledInstance(window_resizable * 2, window_resizable, java.awt.Image.SCALE_SMOOTH));
+        img2.setImage(img2.getImage().getScaledInstance(window_resizable * 2, window_resizable, java.awt.Image.SCALE_SMOOTH));
+        img3.setImage(img3.getImage().getScaledInstance(window_resizable, window_resizable, java.awt.Image.SCALE_SMOOTH));
+
+        bar = new DelayButton(img1);
+        bar2 = new DelayButton(img2);
+        bar3 = new DelayButton(img3);
+
         bar.addActionListener(this);
         bar2.addActionListener(this);
         bar3.addActionListener(this);
-        bar.setBounds(map_size * 50 + 20, (map_size - 1) * 50 + 10, 100, 50);
-        bar3.setBounds(map_size * 50 + 120, (map_size - 1) * 50 + 10, 50, 50);
-        bar2.setBounds(map_size * 50 + 170, (map_size - 1) * 50 + 10, 100, 50);
+
+        bar.setBounds(map_size * window_resizable + 20, (map_size - 1) * window_resizable + 5, window_resizable * 2, window_resizable);
+        bar3.setBounds(map_size * window_resizable + 20 + 2 * window_resizable, (map_size - 1) * window_resizable + 5, window_resizable, window_resizable);
+        bar2.setBounds(map_size * window_resizable + 20 + 2 * window_resizable + window_resizable, (map_size - 1) * window_resizable + 5, window_resizable * 2, window_resizable);
+
         this.getLayeredPane().add(bar);
         this.getLayeredPane().add(bar2);
         this.getLayeredPane().add(bar3);
@@ -95,11 +113,11 @@ public class MapWindow extends JFrame implements WindowSettings, ActionListener 
             if (is_paused) {
                 timer.stop();
                 is_paused = false;
-                bar3.setIcon(new ImageIcon("play.png"));
+                bar3.setIcon(img4);
             } else {
                 timer.start();
                 is_paused = true;
-                bar3.setIcon(new ImageIcon("square.png"));
+                bar3.setIcon(img3);
             }
         }
     }

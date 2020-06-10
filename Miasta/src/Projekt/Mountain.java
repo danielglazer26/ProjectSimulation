@@ -1,10 +1,10 @@
 package Projekt;
 
- class Mountain extends Field  {
+class Mountain extends Field {
 
     private final int value = 15;
 
-    protected Mountain(){
+    protected Mountain() {
         super.setValue(value);
     }
 

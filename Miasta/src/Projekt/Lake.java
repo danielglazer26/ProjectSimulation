@@ -4,7 +4,7 @@ class Lake extends Field {
 
     private final int value = -1;
 
-    protected Lake(){
+    protected Lake() {
         super.setValue(value);
     }
 }

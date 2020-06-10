@@ -12,7 +12,6 @@ class CitiesRelation {
     private boolean add;
 
 
-
     public CitiesRelation(int turn_number, float agression_rate) {
 
         turn_late_number = turn_number * (1 - agression_rate);

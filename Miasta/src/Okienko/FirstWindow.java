@@ -10,7 +10,7 @@ import java.awt.event.KeyEvent;
 public class FirstWindow extends JFrame implements ActionListener, WindowSettings {
 
 
-    public FirstWindow()  {
+    public FirstWindow() {
 
         this.setBounds((x - 500) / 2, (y - 300) / 2, 500, 300);
         this.setTitle(title);

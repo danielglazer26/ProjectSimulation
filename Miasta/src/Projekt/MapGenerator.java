@@ -43,11 +43,11 @@ public class MapGenerator {
         return map;
     }
 
-    protected int getOwnership(int x,int y){
+    protected int getOwnership(int x, int y) {
         return map.get(x).get(y).getOwnership();
     }
 
-    protected void setOwnership(int x, int y, int own){
+    protected void setOwnership(int x, int y, int own) {
         map.get(x).get(y).setOwnership(own);
     }
 
@@ -55,23 +55,25 @@ public class MapGenerator {
     {
         for (int i = 0; i < map_size; i++) {
             for (int j = 0; j < map_size; j++) {
-                System.out.print(map.get(i).get(j).getOwnership()+" ");
+                System.out.print(map.get(i).get(j).getOwnership() + " ");
             }
             System.out.println();
         }
         System.out.println();
     }
+
     protected void value_viewer(int map_size) //wersja deweloperska do sprawdzania mapy, potem się to wywali
     {
         for (int i = 0; i < map_size; i++) {
             for (int j = 0; j < map_size; j++) {
-                System.out.print(map.get(i).get(j).getValue()+" ");
+                System.out.print(map.get(i).get(j).getValue() + " ");
             }
             System.out.println();
         }
         System.out.println();
     }
-    protected int getValue(int x, int y){
+
+    protected int getValue(int x, int y) {
         return map.get(x).get(y).getValue();
     }
 }

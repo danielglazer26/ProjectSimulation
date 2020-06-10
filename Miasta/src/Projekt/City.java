@@ -52,11 +52,17 @@ public class City {
         return city_color;
     }
 
-    public int getFields_number(){return fields_number;}
+    public int getFields_number() {
+        return fields_number;
+    }
 
-    public void addFields_number(){this.fields_number++;}
+    public void addFields_number() {
+        this.fields_number++;
+    }
 
-    public void setFields_number(){this.fields_number=0;}
+    public void setFields_number() {
+        this.fields_number = 0;
+    }
 
 
 }

@@ -15,33 +15,42 @@ public class DrawMap extends JPanel { //Klasa od rysowania, bałagan jak chuj al
     //Można ją później połączyć jakoś z MapGeneratorem
 
     private final int map_size;
+    private final int window_resizable;
     private final ArrayList<City> cities;
     private final List<List<Field>> lists;
 
-    public DrawMap(int map_size, List<List<Field>> lists, ArrayList<City> cities) {
+    public DrawMap(int map_size, int window_resizable, List<List<Field>> lists, ArrayList<City> cities) {
         this.map_size = map_size;
         this.lists = lists;
         this.cities = cities;
+        this.window_resizable = window_resizable;
     }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
-        System.out.println("Kurwa dzialaj"); // To już wyznacznik tego jak bardzo uwielbiam tą klasę
+        g.setFont(g.getFont().deriveFont(g.getFont().getSize() * ((50F / window_resizable))));
+        g2d.scale(((float) (window_resizable)) / 50, ((float) (window_resizable)) / 50);
         drawMap(g2d);
         drawLegend(g2d);
     }
 
     private void drawLegend(Graphics2D g2d) {
 
+        int font_size = g2d.getFont().getSize();
         g2d.drawString("Obecna tura: " + MapWindow.getCurrent_Turn(), (map_size + 1) * 50, 25);
 
         for (int i = 0; i < cities.size(); i++) {
 
             g2d.setColor(cities.get(i).getColor());
-            g2d.drawString("Miasto", (map_size + 1) * 50, 40 + i * 50);
-            g2d.drawString("Poziom miasta: " + cities.get(i).getCity_level(), (map_size + 1) * 50, 50 + i * 50);
-            g2d.drawString("Wartość miasta: " + cities.get(i).getFortune(), (map_size + 1) * 50, 60 + i * 50);
+            if (cities.get(i).getCity_level() == 0) {
+                g2d.drawString("Miasto", (map_size + 1) * 50, 30 + font_size + i * 50);
+                g2d.drawString("Upadek", (map_size + 1) * 50, 35 + 2 * font_size + i * 50);
+            } else {
+                g2d.drawString("Miasto", (map_size + 1) * 50, 30 + font_size + i * 50);
+                g2d.drawString("Poziom miasta: " + cities.get(i).getCity_level(), (map_size + 1) * 50, 35 + 2 * font_size + i * 50);
+                g2d.drawString("Wartość miasta: " + cities.get(i).getFortune(), (map_size + 1) * 50, 40 + 3 * font_size + i * 50);
+            }
 
         }
     }
@@ -93,11 +102,13 @@ public class DrawMap extends JPanel { //Klasa od rysowania, bałagan jak chuj al
 
     private Boolean isCapital(Graphics2D g2d, int i, int j) {
         for (City city : cities) {
-            if (i == city.getY() && j == city.getX()) {
-                g2d.setPaint(city.getColor());
-                g2d.fillRect(10 + i * 50, 10 + j * 50, 50, 50);
-                g2d.drawImage(MapElements.getImage("city_icon.png"), 10 + i * 50, 10 + j * 50, this);
-                return false;
+            if (city.getCity_level() != 0) {
+                if (i == city.getY() && j == city.getX()) {
+                    g2d.setPaint(city.getColor());
+                    g2d.fillRect(10 + i * 50, 10 + j * 50, 50, 50);
+                    g2d.drawImage(MapElements.getImage("city_icon.png"), 10 + i * 50, 10 + j * 50, this);
+                    return false;
+                }
             }
         }
         return true;

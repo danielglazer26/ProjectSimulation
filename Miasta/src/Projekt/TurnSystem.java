@@ -1,7 +1,7 @@
 package Projekt;
 
 
-public class TurnSystem  {   //Odpowiada za cały system tur
+public class TurnSystem {   //Odpowiada za cały system tur
 
 
     public CitiesEvolution citiesEvolution;
@@ -39,7 +39,7 @@ public class TurnSystem  {   //Odpowiada za cały system tur
                     if (citiesEvolution.getAdd1()) {
                         citiesEvolution.getMap().setOwnership(citiesEvolution.getBest_x1(), citiesEvolution.getBest_y1(), j + 1);
                     }
-                    if(citiesRelation.getAdd2()){
+                    if (citiesRelation.getAdd2()) {
                         citiesEvolution.getMap().setOwnership(citiesRelation.getBest_x2(), citiesRelation.getBest_y2(), j + 1);
                     }
                 }

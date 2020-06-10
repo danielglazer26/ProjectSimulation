@@ -50,7 +50,7 @@ abstract class MapElements {
 
         BufferedImage image = null;
 
-        File imageFile= new File(nazwa);
+        File imageFile = new File(nazwa);
         try {
             image = ImageIO.read(imageFile);
         } catch (IOException e) {
