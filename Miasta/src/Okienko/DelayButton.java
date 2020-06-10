@@ -1,4 +1,3 @@
-
 package Okienko;
 
 import javax.swing.*;

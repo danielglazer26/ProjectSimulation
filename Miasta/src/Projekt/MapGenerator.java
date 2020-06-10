@@ -56,6 +56,7 @@ public class MapGenerator {
         return map;
     }
 
+
     /**
      *
      * @param x wspolrzedna x
@@ -84,7 +85,7 @@ public class MapGenerator {
     {
         for (int i = 0; i < map_size; i++) {
             for (int j = 0; j < map_size; j++) {
-                System.out.print(map.get(i).get(j).getOwnership()+" ");
+                System.out.print(map.get(i).get(j).getOwnership() + " ");
             }
             System.out.println();
         }

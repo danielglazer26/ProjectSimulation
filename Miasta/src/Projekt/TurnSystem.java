@@ -4,6 +4,7 @@ package Projekt;
  * Odpowiada za caly system tur
  */
 
+
 public class TurnSystem  {
 
     /**obiekt odpowiadajacy za ewolucje miast*/
@@ -62,6 +63,7 @@ public class TurnSystem  {
                         //miasto przejmuje pole
                         citiesEvolution.getMap().setOwnership(citiesEvolution.getBest_x1(), citiesEvolution.getBest_y1(), j + 1);
                     }
+
                     if(citiesRelation.getAdd2()){
                         //miasto przejmuje pole
                         citiesEvolution.getMap().setOwnership(citiesRelation.getBest_x2(), citiesRelation.getBest_y2(), j + 1);

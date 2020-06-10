@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.io.File;
 import java.util.ArrayList;
 
 public class TextWindow extends JFrame implements ActionListener, WindowSettings {
@@ -107,8 +106,8 @@ public class TextWindow extends JFrame implements ActionListener, WindowSettings
             return false;
         }
 
-            if (values[0] < values[1])
-                return true;
+        if (values[0] < values[1])
+            return true;
 
         if (easter_egg < 3) {
             JOptionPane.showMessageDialog(rootPane, "Niepoprawna ilość miast. Ilość miast musi być mniejsza niż powierzchnia mapy");

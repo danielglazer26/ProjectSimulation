@@ -1,5 +1,6 @@
 package Projekt;
 
+
 /**
  * Pole reprezentujace gory
  */
@@ -7,7 +8,7 @@ package Projekt;
     /**wartosc pola*/
     private final int value = 15;
 
-    protected Mountain(){
+    protected Mountain() {
         super.setValue(value);
     }
 

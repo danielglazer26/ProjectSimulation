@@ -7,8 +7,8 @@ class Sand extends Field {
     /**wartosc pola*/
     private final int value = 5;
 
-    protected Sand(){
-       super.setValue(value);
+    protected Sand() {
+        super.setValue(value);
     }
 
 }

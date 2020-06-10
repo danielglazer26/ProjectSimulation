@@ -45,8 +45,8 @@ public class CitiesEvolution {
      */
     protected void cityEvolution(int map_size, int a) {
 
-        best_x=0;
-        best_y=0;
+        best_x = 0;
+        best_y = 0;
         best_value = 0;
         add = false;
         for (int i = 0; i < map_size; i++) {               //sprawdzanie dla kolejnych wspolrzednych mapy
@@ -63,7 +63,7 @@ public class CitiesEvolution {
                         }
                     //to samo ale dla innych wspolrzednych aby nie wyjsc poza mape
                     if (i < map_size - 1)
-                        if (mapGenerator.getOwnership(i + 1, j)==0) {
+                        if (mapGenerator.getOwnership(i + 1, j) == 0) {
                             if (mapGenerator.viewMap().get(i + 1).get(j).getValue() > best_value) {
                                 best_x = i + 1;
                                 best_y = j;
@@ -74,7 +74,7 @@ public class CitiesEvolution {
                         }
                     //to samo ale dla innych wspolrzednych aby nie wyjsc poza mape
                     if (j > 0)
-                        if (mapGenerator.getOwnership(i, j - 1)==0) {
+                        if (mapGenerator.getOwnership(i, j - 1) == 0) {
                             if (mapGenerator.viewMap().get(i).get(j - 1).getValue() > best_value) {
                                 best_x = i;
                                 best_y = j - 1;
@@ -84,7 +84,7 @@ public class CitiesEvolution {
                         }
                     //to samo ale dla innych wspolrzednych aby nie wyjsc poza mape
                     if (j < map_size - 1)
-                        if (mapGenerator.getOwnership(i, j + 1)==0) {
+                        if (mapGenerator.getOwnership(i, j + 1) == 0) {
                             if (mapGenerator.viewMap().get(i).get(j + 1).getValue() > best_value) {
                                 best_x = i;
                                 best_y = j + 1;
@@ -107,6 +107,7 @@ public class CitiesEvolution {
     public int checkField(int x, int y) {
         return mapGenerator.viewMap().get(x).get(y).getValue();
     }
+
 
     /**
      *

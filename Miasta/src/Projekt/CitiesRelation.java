@@ -21,6 +21,7 @@ class CitiesRelation {
     private boolean add;
 
 
+
     /**
      * Oblicza numer tury od ktorej mozliwe jest zabieranie pol innym miastom
      * @param turn_number liczba wszystkich tur

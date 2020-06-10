@@ -91,6 +91,7 @@ public class City {
         return city_color;
     }
 
+
     /**
      *
      * @return zwraca liczbe posiadanych przez miasto pol
@@ -102,10 +103,12 @@ public class City {
      */
     public void addFields_number(){this.fields_number++;}
 
+
     /**
      * Wyzerowanie posiadanych pol przed ponownym zliczeniem
      */
     public void setFields_number(){this.fields_number=0;}
+
 
 
 }
