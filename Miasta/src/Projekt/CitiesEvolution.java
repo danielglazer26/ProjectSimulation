@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class CitiesEvolution {
 
-    /**lista mist*/
+    /**lista miast*/
     private ArrayList<City> city_table = new ArrayList<>();
     /**obiekt odpowiadajacy za tworzenie mapy*/
     private MapGenerator mapGenerator;

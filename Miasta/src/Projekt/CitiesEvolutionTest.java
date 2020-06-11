@@ -6,7 +6,8 @@ class CitiesEvolutionTest {
 
 
 
-    @Test /**Sprawdzenie czy algorytm wyboru najlepszego pola zadziala dla kazdego miasta*/
+    @Test
+    /**Sprawdzenie czy algorytm wyboru najlepszego pola zadziala dla kazdego miasta*/
     void AddShouldBeTrue() {
         RandomNumber randomNumber=new RandomNumber(1);
         CitiesEvolution evolution = new CitiesEvolution(5,3,randomNumber);

@@ -8,7 +8,9 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
+/**
+ * Klasa odpowiadajaca za nadzorowanie okna mapy
+ */
 public class MapWindow extends JFrame implements WindowSettings, ActionListener {
 
     private static int current_turn;
@@ -23,6 +25,14 @@ public class MapWindow extends JFrame implements WindowSettings, ActionListener 
     private ImageIcon img3 = new ImageIcon("square.png");
     private ImageIcon img4 = new ImageIcon("play.png");
 
+    /**
+     * Tworzy okno mapy
+     * @param number_cities lcizba miast
+     * @param map_size rozmiar mapy
+     * @param turn_number liczba tur
+     * @param agression_rate wspolczynnik agresji
+     * @param seed seed
+     */
     public MapWindow(int number_cities, int map_size, int turn_number, float agression_rate, int seed) {
 
         turnSystem = new TurnSystem(turn_number, map_size, number_cities, agression_rate, new RandomNumber(seed));
@@ -55,11 +65,21 @@ public class MapWindow extends JFrame implements WindowSettings, ActionListener 
     }
 
 
+    /**
+     * Zwraca obecna ture
+     * @return obecna ture
+     */
     public static int getCurrent_Turn() {
         return current_turn;
     }
 
-
+    /**
+     * Odpowiada za wywolanie timera lub jego zatrzymanie. Sprawdza czy moze zostac wykonana kolejna tura
+     * @param i obecna tura
+     * @param map_size rozmiar mapy
+     * @param turn_number liczba tur
+     * @param number_cities liczba miast
+     */
     protected void timeToDraw(int i, int map_size, int turn_number, int number_cities) {
         current_turn = i;
         if (i < turn_number) {
@@ -72,6 +92,10 @@ public class MapWindow extends JFrame implements WindowSettings, ActionListener 
         }
     }
 
+    /**
+     * Tworzy i umiejscawia w odpowiednim miejscu guziki play, stop, faster, slower.
+     * @param map_size rozmiar mapy
+     */
     private void buttonCreator(int map_size) {
 
         img1.setImage(img1.getImage().getScaledInstance(window_resizable * 2, window_resizable, java.awt.Image.SCALE_SMOOTH));
@@ -95,6 +119,9 @@ public class MapWindow extends JFrame implements WindowSettings, ActionListener 
         this.getLayeredPane().add(bar3);
     }
 
+    /**
+     *Sprawdza który przycisk zostal wcisniety i podejmuje odpowiednia akcje
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == bar2) {

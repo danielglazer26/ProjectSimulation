@@ -6,11 +6,17 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Klasa dpowiadajaca za zapis danych do pliku
+ */
+
 abstract class WriteToFile {
 
     static FileWriter fileWriter;
 
-
+    /**
+     * Tworzy plik Simulation.csv
+     */
     public static void createFile() {
         try {
             fileWriter = new FileWriter("Simulation.csv");
@@ -19,6 +25,11 @@ abstract class WriteToFile {
         }
     }
 
+    /**
+     * Zapisuje dane wpisane przez uzytkownika przy starcie programu
+     * @param t tablica etykiet poszczegolnych danych
+     * @param v tablica wprowadzonych danych
+     */
     public static void printToFile(String[] t, float[] v) {
         try {
             for (int i = 0; i < t.length; i++) {
@@ -30,6 +41,10 @@ abstract class WriteToFile {
         }
     }
 
+    /**
+     * Zapisuje parametry koncowe jakie miasto uzyskalo po zakonczeniu symulacji
+     * @param c ArrayLista miast
+     */
     public static void printToFile(ArrayList<City> c) {
         try {
             for (int i = 0; i < c.size(); i++) {

@@ -8,6 +8,9 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+/**
+ * Klasa odpowiadajaca za okno od wprowadzania danych
+ */
 public class TextWindow extends JFrame implements ActionListener, WindowSettings {
 
     private final ArrayList<JTextField> text_field = new ArrayList<>();
@@ -15,6 +18,10 @@ public class TextWindow extends JFrame implements ActionListener, WindowSettings
     private final String[] titles = {"Ilość miast", "Powierzchnia mapy", "Ilość tur", "Współczynnik agresji < 0 , 1 >", "Seed"};
     private int easter_egg = 0;
 
+    /**
+     * Ustawianie rozmiaru okna, jego polozenie.
+     * Ustalenie wartosci domyslnych
+     */
     public TextWindow() {
 
 
@@ -75,6 +82,10 @@ public class TextWindow extends JFrame implements ActionListener, WindowSettings
 
     }
 
+    /**
+     * Styl ulozenia etykiet i pol tekstowych w kolumnach
+     * @return obiekt stylu
+     */
     private static GridBagConstraints setGridBagConstraints() {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.weightx = 1;
@@ -83,10 +94,19 @@ public class TextWindow extends JFrame implements ActionListener, WindowSettings
         return gbc;
     }
 
+    /**
+     * Sprawdza czy uzytkownik nacisnal poprawny klawisz przy wpisywaniu danych
+     * @param c znak wcisniety przez uzytkownika
+     * @return prawda jesli zgodny/ falsz jesli niezgodny
+     */
     private Boolean isNumber(char c) {
         return (c >= '0' && c <= '9') || c == '.';
     }
 
+    /**
+     * Sprawdza czy uzytkownik wprowadzil poprawne dane, jesli nie pokazuje odpowiedni komunikat
+     * @return  prawda jesli dane sa zgodne/ falsz jesli niezgodne
+     */
     private Boolean ifCanGoForward() {
 
 

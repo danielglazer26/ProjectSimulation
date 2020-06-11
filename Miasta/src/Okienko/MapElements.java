@@ -6,9 +6,14 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Przechowuje graficzne elementy mapy
+ */
 abstract class MapElements {
 
-
+    /**
+     *Rysuje drzewo na odpowiednich wspolrzednych
+     */
     public static GeneralPath getTree(int x, int y) {
         GeneralPath tree = new GeneralPath();
         tree.moveTo(x + 20, y + 45);
@@ -30,6 +35,9 @@ abstract class MapElements {
         return tree;
     }
 
+    /**
+     *Rysuje gory na odpowiednich wspolrzednych
+     */
     public static GeneralPath getMountain(int x, int y) {
         GeneralPath mountain = new GeneralPath();
 
@@ -46,6 +54,9 @@ abstract class MapElements {
         return mountain;
     }
 
+    /**
+     *Pobiera obraz o odpowiedniej nazwie
+     */
     public static BufferedImage getImage(String nazwa) {
 
         BufferedImage image = null;

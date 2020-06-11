@@ -13,10 +13,13 @@ UWAGA !!!
  */
 package Okienko;
 
+/**
+ * Klasa startowa
+ */
 public abstract class Main {
 
         /**
-         *
+         *Uruchamia pierwsze okno
          */
     public static void main(String[] args) {
 

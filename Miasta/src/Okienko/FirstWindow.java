@@ -7,9 +7,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+/**
+ * Klasa odpowiadająca za okienko startowe
+ */
 public class FirstWindow extends JFrame implements ActionListener, WindowSettings {
 
-
+    /**
+     * Ustala rozmiar i wyglad okna startowego.
+     */
     public FirstWindow() {
 
         this.setBounds((x - 500) / 2, (y - 300) / 2, 500, 300);

@@ -6,6 +6,14 @@ import java.util.ArrayList;
  * Klasa odpowiadajaca za ustwaienie lokalizacji startowej miast
  */
 abstract class CityLocalization {
+    /**
+     * Ustawia startowa lokalizacje ktora nie jest innym miastem albo jeziorem
+     * @param city_table Array lista miast
+     * @param map Obiekt klasy MapGenerator przechowujący dane o polach
+     * @param number_cities Liczba miast
+     * @param map_size Rozmiar mapy
+     * @param randomNumber Seed
+     */
     protected static void setLocalization(ArrayList<City> city_table, MapGenerator map, int number_cities, int map_size, RandomNumber randomNumber) {
 
         for (int i = 0; i < number_cities; i++) {
