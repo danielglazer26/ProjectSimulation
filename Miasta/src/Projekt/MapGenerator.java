@@ -101,6 +101,8 @@ public class MapGenerator {
     protected int getValue(int x, int y){
         return map.get(x).get(y).getValue();
     }
+
+    protected void setValue(int x, int y, int value){map.get(x).get(y).setValue(value);}
 }
 
 

@@ -130,7 +130,7 @@ class CitiesRelation {
      * @param map mapa
      * @return true jesli moze zabrac pole
      */
-    private Boolean cityCheck(int current_city, int number_cities, int x, int y, ArrayList<City> city_table, MapGenerator map) {
+    protected Boolean cityCheck(int current_city, int number_cities, int x, int y, ArrayList<City> city_table, MapGenerator map) {
         for (int i = 0; i < number_cities; i++) {
             if (current_city != i)
                 if (map.getOwnership(x, y) == i + 1)
