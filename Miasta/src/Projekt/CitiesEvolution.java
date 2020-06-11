@@ -27,7 +27,7 @@ public class CitiesEvolution {
      * @param number_cities liczba miast
      * @param randomNumber obiekt odpowiadajacy za liczby pseudolosowe
      */
-    protected CitiesEvolution(int map_size, int number_cities, RandomNumber randomNumber) {
+    public CitiesEvolution(int map_size, int number_cities, RandomNumber randomNumber) {
 
         mapGenerator = new MapGenerator(map_size, randomNumber);
 
@@ -43,7 +43,7 @@ public class CitiesEvolution {
      * @param map_size szerokosc mapy
      * @param a numer miasta ktore jest sprawdzane
      */
-    protected void cityEvolution(int map_size, int a) {
+    public void cityEvolution(int map_size, int a) {
 
         best_x = 0;
         best_y = 0;

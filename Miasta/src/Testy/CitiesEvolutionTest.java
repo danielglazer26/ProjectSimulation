@@ -1,5 +1,7 @@
-package Projekt;
+package Testy;
 
+import Projekt.CitiesEvolution;
+import Projekt.RandomNumber;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 class CitiesEvolutionTest {

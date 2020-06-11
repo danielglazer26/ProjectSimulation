@@ -1,9 +1,11 @@
-package Projekt;
+package Testy;
 
+import Projekt.CitiesEvolution;
+import Projekt.CitiesRelation;
+import Projekt.RandomNumber;
+import Projekt.TurnValue;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class CitiesRelationTest {
 

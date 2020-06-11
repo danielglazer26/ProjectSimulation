@@ -1,9 +1,9 @@
-package Projekt;
+package Testy;
 
+import Projekt.RandomNumber;
+import Projekt.TurnSystem;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class TurnSystemTest {
 

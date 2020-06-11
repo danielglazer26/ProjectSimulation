@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * Klasa odpowiadajaca za relacje miast
  *
  */
-class CitiesRelation {
+public class CitiesRelation {
 
     /**numer tury od ktorej mozliwe jest zabieranie pol innym miastom*/
     private final float turn_late_number;
@@ -41,7 +41,7 @@ class CitiesRelation {
      * @param city_table lista miast
      * @param map mapa
      */
-    protected void cityInfluence(int turn, int map_size, int number_cities, int current_city, ArrayList<City> city_table, MapGenerator map) {
+    public void cityInfluence(int turn, int map_size, int number_cities, int current_city, ArrayList<City> city_table, MapGenerator map) {
 
         add = false;
 

@@ -5,7 +5,7 @@ package Projekt;
 /**
  * Klasa odpowiadajaca za mozliwosc rozwoju miast (przejecia pola)
  */
-abstract class TurnValue {
+public abstract class TurnValue {
     /**
      * Sprawdza czy miasto moze przejac kolejne pole
      * @param city_value wartosc miasta

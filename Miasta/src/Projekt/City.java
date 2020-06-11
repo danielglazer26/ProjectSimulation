@@ -44,7 +44,7 @@ public class City {
      * Dodanie wartosci miasta
      * @param fortune wartosc miasta
      */
-    protected void addFortune(int fortune) {
+    public void addFortune(int fortune) {
         this.fortune += fortune;
     }
 

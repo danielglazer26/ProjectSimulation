@@ -16,7 +16,7 @@ public class MapGenerator {
      * @param map_size szerokosc mapy
      * @param randomNumber liczby pseudolosowe
      */
-    protected MapGenerator(int map_size, RandomNumber randomNumber) {
+    public MapGenerator(int map_size, RandomNumber randomNumber) {
 
 
         for (int i = 0; i < map_size; i++) {
@@ -63,7 +63,7 @@ public class MapGenerator {
      * @param y wspolrzedna y
      * @return zwraca numer miasta posiadajacego pole
      */
-    protected int getOwnership(int x,int y){
+    public int getOwnership(int x,int y){
         return map.get(x).get(y).getOwnership();
     }
 
@@ -73,7 +73,7 @@ public class MapGenerator {
      * @param y wspolrzedna y
      * @param own numer miasta
      */
-    protected void setOwnership(int x, int y, int own){
+    public void setOwnership(int x, int y, int own){
         map.get(x).get(y).setOwnership(own);
     }
 
@@ -81,7 +81,7 @@ public class MapGenerator {
      * Sprawdzanie mapy w konsoli (testy)
      * @param map_size szerokosc mapy
      */
-    protected void map_viewer(int map_size) //wersja deweloperska do sprawdzania mapy
+    public void map_viewer(int map_size) //wersja deweloperska do sprawdzania mapy
     {
         for (int i = 0; i < map_size; i++) {
             for (int j = 0; j < map_size; j++) {
@@ -98,11 +98,11 @@ public class MapGenerator {
      * @param y wspolrzedna y
      * @return zwraca wartosc pola
      */
-    protected int getValue(int x, int y){
+    public int getValue(int x, int y){
         return map.get(x).get(y).getValue();
     }
 
-    protected void setValue(int x, int y, int value){map.get(x).get(y).setValue(value);}
+    public void setValue(int x, int y, int value){map.get(x).get(y).setValue(value);}
 }
 
 
