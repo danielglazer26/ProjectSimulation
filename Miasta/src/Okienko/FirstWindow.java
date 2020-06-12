@@ -8,7 +8,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 /**
- * Klasa odpowiadająca za okienko startowe
+ * Klasa odpowiadajaca za okienko startowe
  */
 public class FirstWindow extends JFrame implements ActionListener, WindowSettings {
 

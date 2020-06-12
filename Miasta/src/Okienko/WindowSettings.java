@@ -3,7 +3,7 @@ package Okienko;
 import java.awt.*;
 
 /**
- * Interfejs odpowiadający za przechowywanie tytulu programu i rozmiaru monitora
+ * Interfejs odpowiadajacy za przechowywanie tytulu programu i rozmiaru monitora
  */
 public interface WindowSettings {
 
