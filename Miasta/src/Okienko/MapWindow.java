@@ -20,10 +20,10 @@ public class MapWindow extends JFrame implements WindowSettings, ActionListener 
     private int delay = 1000;
     private JButton bar, bar2, bar3;
     private Boolean is_paused = true;
-    private ImageIcon img1 = new ImageIcon("button_left.png");
-    private ImageIcon img2 = new ImageIcon("button_right.png");
-    private ImageIcon img3 = new ImageIcon("square.png");
-    private ImageIcon img4 = new ImageIcon("play.png");
+    private final ImageIcon img1 = new ImageIcon("button_left.png");
+    private final ImageIcon img2 = new ImageIcon("button_right.png");
+    private final ImageIcon img3 = new ImageIcon("square.png");
+    private final ImageIcon img4 = new ImageIcon("play.png");
 
     /**
      * Tworzy okno mapy
@@ -37,7 +37,9 @@ public class MapWindow extends JFrame implements WindowSettings, ActionListener 
 
         turnSystem = new TurnSystem(turn_number, map_size, number_cities, agression_rate, new RandomNumber(seed));
 
+        this.setIconImage(MapElements.getImage("city_icon.png"));
         this.setTitle(title);
+
         while (true) {
             if (map_size * window_resizable + 60 < y) {
                 break;

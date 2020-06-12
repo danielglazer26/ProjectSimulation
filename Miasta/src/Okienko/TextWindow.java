@@ -24,7 +24,7 @@ public class TextWindow extends JFrame implements ActionListener, WindowSettings
      */
     public TextWindow() {
 
-
+        this.setIconImage(MapElements.getImage("city_icon.png"));
         this.setTitle(title);
         this.setBounds((x - 500) / 2, (y - 300) / 2, 500, 300);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

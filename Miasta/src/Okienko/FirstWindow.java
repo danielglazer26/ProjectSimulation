@@ -17,6 +17,7 @@ public class FirstWindow extends JFrame implements ActionListener, WindowSetting
      */
     public FirstWindow() {
 
+        this.setIconImage(MapElements.getImage("city_icon.png"));
         this.setBounds((x - 500) / 2, (y - 300) / 2, 500, 300);
         this.setTitle(title);
 
@@ -35,6 +36,7 @@ public class FirstWindow extends JFrame implements ActionListener, WindowSetting
         };
         add(panel1);
         setVisible(true);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         this.addKeyListener(new KeyAdapter() {
             @Override

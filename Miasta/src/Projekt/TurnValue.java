@@ -13,10 +13,7 @@ public abstract class TurnValue {
      * @return zwraca true jesli miasto moze sie rozwinac, false jesli nie
      */
     public static Boolean checkCityUpgrade(int city_value, int fields_number) {
-        if (city_value > (49 + fields_number) * fields_number * fields_number) {
-            return true;
-        } else
-            return false;
+        return city_value > (49 + fields_number) * fields_number * fields_number;
 
     }
 
